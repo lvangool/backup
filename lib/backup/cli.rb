@@ -150,6 +150,8 @@ module Backup
 
       rescue Exception => err
         Logger.error Errors::CLIError.wrap(err)
+		puts "Error here"
+		puts err.backtrace.join("\n")
         # Logger configuration will be ignored
         # and messages will be output to the console only.
         Logger.abort!
@@ -205,6 +207,8 @@ module Backup
         Config.load_config!
       rescue Exception => err
         Logger.error Errors::CLIError.wrap(err)
+		puts "Error here 1"
+		puts err.backtrace.join("\n")
       end
 
       if Logger.has_warnings? || Logger.has_errors?
