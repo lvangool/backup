@@ -52,7 +52,10 @@ module Backup
         pipeline = Pipeline.new
         dump_ext = 'sql'
 
-        pipeline << mysqldump
+        puts "IN MYSQL"
+		puts mysqldump
+
+		pipeline << mysqldump
 
         model.compressor.compress_with do |command, ext|
           pipeline << command
